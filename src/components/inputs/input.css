@@ -1,0 +1,33 @@
+.input-box{
+    width: 100%;
+    margin: 20px 0;
+}
+.label{
+    font-size: 17px;
+    font-weight: 500;
+    margin: 10px 0;
+    display: block;
+}
+.inp{
+    width: 100%;
+    height: 50px;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    align-items: center;
+}
+.inp input{
+    width: 90%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+.hide{
+    opacity: .5;
+}

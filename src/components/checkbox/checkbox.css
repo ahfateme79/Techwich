@@ -1,0 +1,50 @@
+.agree{
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+.checkbox{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: rgb(242, 175, 251);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tick img{
+    width: 20px;
+}
+.agree input{
+    display: none;
+}
+.agree p{
+    margin-left: 10px;
+    font-size: 14px;
+}
+.agree p a{
+    font-weight: bold;
+    font-size: 13px;
+    display: inline-block;
+    color: #000;
+    margin: 0 2px;
+}
+.tick{
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+.agree input:checked ~.tick{
+    opacity: 1;
+    visibility: visible;
+}

@@ -1,0 +1,29 @@
+.haeding{
+    color: #973cff;
+    font-weight: 700;
+    margin: 15px 0;
+    font-size: 22px;
+}
+.choose{
+    text-align: center;
+    margin: 20px 0;
+    color: #a058f7;
+    font-size: 13px;
+}
+.choose::after{
+    content:'';
+    width: 32%;
+    height: 1px;
+    background-color: #a058f7;
+    display: inline-block;
+    margin: 0 0 3px 8px;
+}
+.choose::before{
+    content:'';
+    width: 32%;
+    height: 1px;
+    background-color: #a058f7;
+    display: inline-block;
+    margin: 0 8px 3px 0;
+
+}
