@@ -1,0 +1,29 @@
+.search-box{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    border:  1px solid #DEE0FF;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    height: 40px;
+    padding: 10px;
+}
+
+.search-box input{
+    width: 90%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.search-box button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    opacity: .5;
+    margin-right: 10px;
+    display: inline-block;
+}

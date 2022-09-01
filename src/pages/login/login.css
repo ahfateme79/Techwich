@@ -1,7 +1,6 @@
 .gradiant-bg{
     background: linear-gradient(to right,#7983FF,#cd17ff);
     padding-top: 50px;
-    min-height: 100vh;
 }
 .bg-gray{
     background-color: rgb(240, 236, 236);
@@ -11,7 +10,6 @@
     -ms-border-radius: 30px 30px 0 0;
     -o-border-radius: 30px 30px 0 0;
     padding: 20px;
-    height: 100%;
 }
 .Logo{
     margin: 15px 0 50px 0;
@@ -19,9 +17,27 @@
 .Logo img{
     width: 250px;
 }
-.haeding{
-    color: #973cff;
-    font-weight: 700;
-    margin: 15px 0;
-    font-size: 22px;
+.link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.link p{
+    font-size: 14px;
+    color: #cd17ff;
+    font-weight: 500;
+}
+.link a{
+    font-size: 14px;
+    color: #7983FF;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-pass{
+    text-align: right;
+    color: #cd17ff;
+    margin-bottom: 50px;
+    text-decoration: none;
 }

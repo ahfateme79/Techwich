@@ -1,7 +1,7 @@
+import {useNavigate} from "react-router-dom";
 import { useState } from 'react'
 import logo from '../../assets/img/logo/techwich_logo_and_title.png'
 import './verify.css'
-import { ReactSession } from 'react-client-session';
 import Btn from '../../components/button/button';
 import Input from '../../components/inputs/input';
 
@@ -11,7 +11,10 @@ import Input from '../../components/inputs/input';
 
 
 const Verify=()=>{
-    let user=JSON.parse(ReactSession.get('data'))
+
+  const history=useNavigate()
+
+    let user=JSON.parse(localStorage.getItem('data'))
     console.log(user.username)
     const [state,setState]=useState("")
     const handlechange = (e) => {
@@ -37,7 +40,12 @@ const Verify=()=>{
 
         fetch("https://techwich.co/users/verify_email", requestOptions)
         .then(response => response.json())
-        .then(result => console.log(result))
+        .then(result => {
+          if (result) {
+            localStorage.setItem('token',result.token)
+            history('/token')
+          }
+        })
         .catch(error => console.log('error', error));
       };
 

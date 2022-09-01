@@ -1,0 +1,106 @@
+.comptition{
+    margin: 30px 0;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+.head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px auto;
+    width: 90%;
+}
+.head a{
+    text-decoration: none;
+    color: #3D4280;
+    font-weight: 500;
+}
+.comptition-item{
+    overflow-x: scroll;
+    display: flex;
+    overflow-y: visible;
+}
+.comp-items{
+    padding: 10px;
+    margin: 0 0 0 20px;
+    background-color: #ffff;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.comptition-head{
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+    width: 330px;
+}
+.comptition-head h4{
+  font-size: 18px;
+}
+.comptition-users{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+.comptition-user img{
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+.comptition-user figcaption{
+    text-align: center;
+    margin: 10px 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+.vs{
+    font-size: 28px;
+    font-weight: bold;
+    font-style: italic;
+    color: #3D4280;
+}
+.btns{
+    margin: 10px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+   position: absolute;
+   bottom: -20px;
+}
+.accept{
+    padding: 15px 25px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    background-color: #252525;
+    color: #ffff;
+    border: none;
+}
+
+.reject{
+    padding: 15px 25px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    background-color: #7983FF;
+    color: #ffff;
+    border: none;
+}

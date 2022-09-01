@@ -6,7 +6,9 @@ import hide from '../../assets/img/Fully/fi-sr-eye-crossed.svg'
 import show from '../../assets/img/Fully/fi-sr-eye.svg'
 import Btn from "../button/button";
 import Checkbox from "../checkbox/checkbox";
-import { ReactSession }  from 'react-client-session';
+// import { ReactSession }  from 'react-client-session';
+import Message from "../alert/alert";
+import Loading from '../../assets/img/loading/Spinner-3.gif'
 
 
 const formdata=[
@@ -49,10 +51,16 @@ const formdata=[
 
 const Form=()=>{
 
+    const [isloading,setIsloading]=useState(false)
+
+
     const history=useNavigate();
 
     const [ToggleState, setToggleState] = useState(false);
     const [ToggleStatec, setToggleStatec] = useState(false);
+
+    const [error, setError] = useState(null);
+
 
     const handleclick=()=>{
         setToggleState(!ToggleState)
@@ -81,14 +89,7 @@ const Form=()=>{
         e.preventDefault();
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
-        
-        // var raw = JSON.stringify({
-        //   "username": "mohammad_juniorr",
-        //   "email": "mohback90@gmail.com",
-        //   "password": "TsT!@123456"
-        // });
-        
-        var requestOptions = {
+        let requestOptions = {
           method: 'POST',
           headers: myHeaders,
           body: JSON.stringify(info),
@@ -98,24 +99,26 @@ const Form=()=>{
         fetch("https://techwich.co/users/register", requestOptions)
           .then((res) => res.json())
           .then((result) => {
-                        ReactSession.setStoreType("localStorage");
-                        ReactSession.set('data',JSON.stringify(info))
+                        localStorage.setItem('data',JSON.stringify(info))
                         if (result.status==='ok') {
                             fetch("https://techwich.co/users/send_verify_email", requestOptions)
                                 .then(response => response.json())
-                                .then(resultt => console.log(resultt))
-                                .catch(error => alert('error', error.message));
-                                history('/verify')
+                                .then(resultt => {
+                                    console.log(resultt) 
+                                    setIsloading(true)
+                                        history('/verify') 
+                                })
+                                .catch(error => setError(error));
                     }else {
-                    alert('error')
+                    setError('error')
                     history('/')
                 }
           })
           .catch(error =>{
-            alert('error', error.message)
+            setError(error)
           })
         }else{
-            alert('error')
+            setError('error')
         }
       };
 
@@ -130,6 +133,8 @@ const Form=()=>{
 
     return(
         <div>
+            {isloading?<img src={Loading} alt='loading'/>:
+            <>
             <h3 className="haeding">Lets Get Start,Register Now</h3>
         <form onSubmit={handlesubmit}>
             <div>
@@ -139,21 +144,24 @@ const Form=()=>{
             <Input label={formdata[3].label} value={cpassword} change={handlechange2} type={ToggleStatec?'text':formdata[3].type} name={formdata[3].name} id={formdata[3].id} placeholder={formdata[3].placeholder} icon={ToggleStatec? formdata[3].show:formdata[3].icon} alt={formdata[3].name} click={chandleclick}/>
 
             </div>
-
+                {
+                    error?<Message message="error" description={error}/>:''
+                }
             <div>
                 <Checkbox checked={check} changes={handlecchecked}/>
-                <Btn btntitle='Register' disable={check?false:true} style={{background:'linear-gradient(to right,#7983FF,#cd17ff)',color:'#fff',opacity:check?'1':'.5'}}/>
+                <Btn btntitle={isloading?<img src={Loading} alt='loading'/>:'Register'} disable={check?false:true} style={{background:'linear-gradient(to right,#7983FF,#cd17ff)',color:'#fff',opacity:check?'1':'.5'}}></Btn>
             </div>
             
             <div>
                 <p className="choose">or continue with</p>
             </div>
-            
             <div style={{margin:'20px 0'}}>
             <Btn btntitle='Login with google' disable={false}  style={{background:'transparent',color:'#7983FF',border:'1px solid #7983FF'}}/>
             <Btn btntitle='Login with Facebook' disable={false} style={{background:'transparent',color:'#7983FF',border:'1px solid #7983FF'}}/>
             </div>
         </form>
+        </>
+}
         </div>
     )
 }

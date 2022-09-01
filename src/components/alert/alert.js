@@ -1,13 +1,21 @@
+import { useState } from 'react'
 import './alert.css'
 
 
 const Message=(props)=>{
+    const [toggle,setToggle]=useState(true)
+
+
+    const close=()=>{
+        setToggle(false)
+    }
+
     return(
-        <div className="parent-message">
+        <div className={toggle?"parent-message":"close"}>
             <div className='alert'>
                 <h1>{props.message}</h1>
                 <p className='message'>{props.description}</p>
-                <button>ok</button>
+                <button onClick={close}>ok</button>
             </div>
         </div>
     )
